@@ -1,12 +1,11 @@
 # Bevy Discord Presence Plugin
 
-[![crates.io](https://img.shields.io/crates/v/bevy-discord-presence)](https://crates.io/crates/bevy-discord-presence)
+<!-- [![crates.io](https://img.shields.io/crates/v/bevy-discord-presence)](https://crates.io/crates/bevy-discord-presence)
 [![crates.io](https://img.shields.io/crates/d/bevy-discord-presence)](https://crates.io/crates/bevy-discord-presence)
-[![Following released Bevy versions](https://img.shields.io/badge/Bevy%20tracking-released%20version-lightblue)](https://bevyengine.org/learn/book/plugin-development/#main-branch-tracking)[![docs.rs](https://img.shields.io/docsrs/bevy-discord-presence/latest)](https://docs.rs/bevy-discord-presence)
+[![Following released Bevy versions](https://img.shields.io/badge/Bevy%20tracking-released%20version-lightblue)](https://bevyengine.org/learn/book/plugin-development/#main-branch-tracking)
+[![docs.rs](https://img.shields.io/docsrs/bevy-discord-presence/latest)](https://docs.rs/bevy-discord-presence) -->
 
-> [!WARNING]
-> This project has been archived, as I do not have the time or motivation to maintain it currently. The currently released version should continue to work for the foreseeable future, but will inevitably be broken by a future Bevy update.
-> The underlying [discord-presence](https://github.com/jewlexx/discord-presence) library is still under active development, you are welcome to use this repo as a reference for integrating it into your own Bevy app, or fork it, but I will not continue updating this plugin for the ever changing Bevy ecosystem.
+> This is a fork of the original [bevy-discord-presence](https://github.com/jewlexx/bevy-discord-rpc) crate, which is no longer maintained.
 
 A simplistic bevy plugin for discord presence integration within the bevy game engine
 
@@ -16,36 +15,32 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-bevy-discord-presence = "0.5"
-```
-
-or run:
-
-```shell
-cargo add bevy-discord-presence
+bevy-discord-presence = { git = "https://github.com/EmmettJayhart/bevy-discord-rpc" }
 ```
 
 ## Example
 
 ```rust
 use bevy::prelude::*;
-
-use bevy_discord_presence::config::{RPCConfig, RPCPlugin};
+use bevy_discord_presence::{ActivityState, RPCPlugin};
 
 fn main() {
-    println!("hello world!");
     let mut app = App::new();
     app.add_plugins(DefaultPlugins);
-    app.add_plugin(RPCPlugin(RPCConfig {
-        app_id: 965125975941709834,
-        show_time: true,
-    }));
+
+    // Pass Discord App ID, and set show_time to true.
+    app.add_plugins(RPCPlugin::new(965125975941709834, true))
+        .add_systems(Update, update_presence);
 
     app.run();
 }
-```
 
-> More examples can be found in the examples directory.
+fn update_presence(mut state: ResMut<ActivityState>) {
+    state.instance = Some(true);
+    state.details = Some("Hello World".to_string());
+    state.state = Some("This is state".to_string());
+}
+```
 
 ## Changelog
 
@@ -53,4 +48,24 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 ## Contributions
 
-See [CONTRIBUTING.md](/CONTRIBUTING.md)
+Contributions to this project are welcome, just follow these steps.
+
+1. Fork this repository and create a feature branch named after the feature you want to implement
+2. Make your changes on your branch
+3. Add some test if possibe
+4. Make sure all tests pass
+5. Submit a PR/MR on GitHub
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual-licensed as described below, without any additional terms or conditions.
+
+## License
+
+Portions of this project, were originally released into the public domain as described by [UNLICENSE](UNLICENSE) by the original developer of the [bevy-discord-presence](https://github.com/jewlexx/bevy-discord-rpc) crate. These portions remain in the public domain, and their use is unrestricted.
+
+Except where noted, all contributions to this repository made after forking from the original repository is dual-licensed under either:
+
+-   MIT License ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+-   Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+
+at your option.
+However, the project as a whole can also be used under the terms of the MIT License or the Apache License 2.0, at the user's discretion.

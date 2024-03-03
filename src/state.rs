@@ -19,7 +19,7 @@ pub trait EventHandler {
     /// If it returns `None`, then the queue is empty
     fn respond(&mut self) -> Option<Event>;
 
-    /// Return and remove the most recent event in the queue
+    /// Return and remove the latest event in the queue
     ///
     /// If it returns `None`, then the queue is empty
     fn respond_latest(&mut self) -> Option<Event>;
@@ -77,20 +77,28 @@ impl EventHandler for Arc<Mutex<Events>> {
 pub struct ActivityState {
     /// The player's current party status
     pub state: Option<String>,
+
     /// What the player is currently doing
     pub details: Option<String>,
+
     /// Whether this activity is an instanced context, like a match
     pub instance: Option<bool>,
+
     /// Helps create elapsed/remaining timestamps on a player's profile
     pub timestamps: Option<ActivityTimestamps>,
+
     /// Assets to display on the player's profile
     pub assets: Option<ActivityAssets>,
+
     /// Information about the player's party. NOTE: Joining a party is not currently supported
     pub party: Option<ActivityParty>,
+
     /// Secret passwords for joining and spectating the player's game. NOTE: Joining a party is not currently supported
     pub secrets: Option<ActivitySecrets>,
+
     /// The events that have fired for this activity
     pub events: Arc<Mutex<Events>>,
+
     /// The buttons to be displayed on the player's profile
     pub buttons: Vec<ActivityButton>,
 }
