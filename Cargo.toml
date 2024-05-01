@@ -16,4 +16,4 @@ quork = { version = "0.6", default-features = false, features = ["traits"] }
 derive_more = "0.99"
 
 [dev-dependencies]
-version-sync = "0.9"
+version-sync = "0.9.5"
