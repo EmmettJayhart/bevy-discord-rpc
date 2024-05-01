@@ -13,7 +13,7 @@ discord-presence = { version = "1.0", git = "https://github.com/jewlexx/discord-
 bevy = { version = "0.13", default-features = false }
 parking_lot = "0.12"
 quork = { version = "0.6", default-features = false, features = ["traits"] }
-derive_more = "0.99"
+derive_more = "0.99.17"
 
 [dev-dependencies]
 version-sync = "0.9"
