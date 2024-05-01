@@ -11,7 +11,7 @@ edition = "2021"
 [dependencies]
 discord-presence = { version = "1.0", git = "https://github.com/jewlexx/discord-presence" }
 bevy = { version = "0.13", default-features = false }
-parking_lot = "0.12"
+parking_lot = "0.12.2"
 quork = { version = "0.6", default-features = false, features = ["traits"] }
 derive_more = "0.99"
 
