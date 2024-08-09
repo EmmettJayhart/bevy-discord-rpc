@@ -4,7 +4,7 @@ description = "Discord presence plugin for the Bevy game engine"
 license = "MIT"
 authors = ["Juliette Cordor", "Emmett Jayhart <emmett@jayhart.io>"]
 keywords = ["discord", "rpc", "ipc"]
-version = "0.6.0"
+version = "0.7.0"
 repository = "https://github.com/EmmettJayhart/bevy-discord-rpc.git"
 edition = "2021"
 
