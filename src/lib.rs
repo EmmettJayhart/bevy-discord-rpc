@@ -5,7 +5,7 @@
 //! This plugin is a Bevy wrapper around the [Discord Presence](https://docs.rs/crate/discord-presence) crate which in turn is a wrapper around the [Discord Presence API](https://discordapp.com/developers/docs/game-sdk/discord-presence).
 //! # Example
 //!
-//! ```rust
+//! ```rust,ignore
 //! use bevy::prelude::*;
 //! use bevy_discord_presence::{ActivityState, RPCPlugin};
 //!

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 I will add links where possible, including retroactively if possible.
 
+## [0.8.1](https://github.com/EmmettJayhart/bevy-discord-rpc/releases/tag/v0.8.1) - 2024-11-30
+
+### Changed
+
+- Fixed infinite doctest loop
+
 ## [0.8.0](https://github.com/EmmettJayhart/bevy-discord-rpc/releases/tag/v0.8.0) - 2024-11-30
 
 ### Changed
