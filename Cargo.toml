@@ -12,7 +12,7 @@ edition = "2021"
 discord-presence = { version = "1.4", git = "https://github.com/jewlexx/discord-presence" }
 bevy = { version = "0.15", default-features = false }
 parking_lot = "0.12"
-quork = { version = "=0.7.1", default-features = false, features = [
+quork = { version = "=0.8.1", default-features = false, features = [
     "macros",
     "std",
     "traits",
